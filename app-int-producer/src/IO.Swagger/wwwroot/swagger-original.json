@@ -1,0 +1,102 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Lorem ipsum",
+    "version" : "1.0.0",
+    "title" : "Int-App Application API",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "daniel.leslie@apivista.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "loremipsum.com",
+  "basePath" : "/v1",
+  "tags" : [ {
+    "name" : "applications",
+    "description" : "Applications",
+    "externalDocs" : {
+      "description" : "Find out more",
+      "url" : "http://swagger.io"
+    }
+  } ],
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/applications" : {
+      "post" : {
+        "tags" : [ "applications" ],
+        "summary" : "Push a new application to the event queue",
+        "description" : "",
+        "operationId" : "addApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Application to be added",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Request.IntakeApplication"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Application Sent",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Request.IntakeApplication" : {
+      "type" : "object",
+      "properties" : {
+        "questionAndAnswer" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/QuestionAndAnswer"
+          }
+        },
+        "applicant" : {
+          "type" : "object",
+          "properties" : { }
+        }
+      }
+    },
+    "QuestionAndAnswer" : {
+      "type" : "object",
+      "properties" : {
+        "questionId" : {
+          "type" : "string"
+        },
+        "answer" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Applicant" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "contactNumber" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "externalDocs" : {
+    "description" : "Find out more about Swagger",
+    "url" : "http://swagger.io"
+  }
+}
