@@ -1,6 +1,6 @@
 # Overview
 
-This application is for the purposes of the interview at Snag.  It completes the procress of intaking an application and comparing it against a stored result set of quesitons and answers in a database and then writes the output to another database.
+This application is for the purposes of the interview at Snag.  It completes the process of intaking an application and comparing it against a stored result set of quesitons and answers in a database and then writes the output to another database.
 
 # Architecture
 
